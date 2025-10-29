@@ -125,6 +125,14 @@ body {
     animation: float 3s ease-in-out infinite;
 }
 
+.engineer-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+    animation-delay: 0.5s;
+    margin: 0 10px;
+}
+
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -184,11 +192,116 @@ body {
 }
 
 .flower-divider span:nth-child(2) {
-    animation-delay: 0.5s;
+    animation-delay: 0.3s;
 }
 
 .flower-divider span:nth-child(3) {
-    animation-delay: 1s;
+    animation-delay: 0.6s;
+}
+
+.flower-divider span:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.flower-divider span:nth-child(5) {
+    animation-delay: 1.2s;
+}
+
+/* Dress Code Section */
+.dress-code-section {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin: 40px 0;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+}
+
+.dress-code-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin: 20px auto 30px;
+    max-width: 600px;
+}
+
+.color-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.color-dot {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Contact Section */
+.contact-section {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin: 40px 0;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.contact-info {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-names {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-icon {
+    font-size: 1.5rem;
 }
 
 /* RSVP Section */
@@ -516,11 +629,30 @@ body {
     }
 
     .invitation-message,
+    .dress-code-section,
+    .contact-section,
     .rsvp-section,
     .trivia-section {
         padding: 40px 20px;
         margin: 20px 0;
         border-radius: 20px;
+    }
+
+    .dress-code-text {
+        font-size: 1.1rem;
+    }
+
+    .color-list {
+        gap: 20px;
+    }
+
+    .color-item {
+        font-size: 1rem;
+    }
+
+    .whatsapp-link {
+        font-size: 1rem;
+        padding: 12px 20px;
     }
 
     .trivia-cards {

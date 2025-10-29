@@ -128,7 +128,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe sections for animation
-document.querySelectorAll('.invitation-message, .rsvp-section, .trivia-section').forEach(section => {
+document.querySelectorAll('.invitation-message, .dress-code-section, .contact-section, .rsvp-section, .trivia-section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -148,13 +148,37 @@ rsvpHeader.addEventListener('click', function() {
 const flipCards = document.querySelectorAll('.flip-card');
 
 flipCards.forEach(card => {
+    let flipTimer = null;
+    
     // Handle both click (desktop) and touch (mobile) events
     const toggleFlip = function(e) {
         // Prevent default touch behavior
         if (e.type === 'touchstart') {
             e.preventDefault();
         }
-        this.classList.toggle('flipped');
+        
+        // Clear any existing timer
+        if (flipTimer) {
+            clearTimeout(flipTimer);
+            flipTimer = null;
+        }
+        
+        // Toggle the flip
+        const isFlipped = this.classList.contains('flipped');
+        
+        if (!isFlipped) {
+            // Flipping to answer side
+            this.classList.add('flipped');
+            
+            // Set timer to flip back after 3 seconds
+            flipTimer = setTimeout(() => {
+                this.classList.remove('flipped');
+                flipTimer = null;
+            }, 3000);
+        } else {
+            // Manually flipping back to question side
+            this.classList.remove('flipped');
+        }
     };
     
     card.addEventListener('click', toggleFlip);
