@@ -1,3 +1,31 @@
+// Personalize invitation with name from URL parameter
+function personalizeInvitation() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+    const greetingElement = document.getElementById('personalized-greeting');
+    
+    if (name && greetingElement) {
+        // Decode the name in case it has special characters
+        const decodedName = decodeURIComponent(name);
+        greetingElement.textContent = `${decodedName}, `;
+        greetingElement.style.fontWeight = '600';
+        greetingElement.style.color = 'var(--accent-color)';
+        greetingElement.style.display = 'inline';
+        
+        // Optional: Pre-fill the RSVP form with the name
+        const nameInput = document.getElementById('name');
+        if (nameInput && !nameInput.value) {
+            nameInput.value = decodedName;
+        }
+    } else {
+        // Keep neutral message - no personalization
+        greetingElement.style.display = 'none';
+    }
+}
+
+// Initialize personalization when page loads
+personalizeInvitation();
+
 // Handle attendance selection
 document.getElementById('attendance').addEventListener('change', function() {
     const companionsGroup = document.getElementById('companions-group');
