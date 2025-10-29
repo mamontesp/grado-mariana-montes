@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grado de Mariana Montes - Ingeniería Topográfica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="floral-decoration top-left"></div>
+            <div class="floral-decoration top-right"></div>
+            
+            <div class="hero-content">
+                <h1 class="ceremony-title">Ceremonia de Grado</h1>
+                <div class="graduate-name">Mariana Montes</div>
+                <div class="degree-info">Ingeniería Topográfica</div>
+                
+                <div class="divider">
+                    <span class="flower-icon">🌸</span>
+                </div>
+                
+                <div class="event-details">
+                    <div class="detail-item">
+                        <span class="icon">📅</span>
+                        <span class="detail-text">Sábado, 22 de Noviembre de 2025</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="icon">📍</span>
+                        <span class="detail-text">Calle 22 a sur # 2-39</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="floral-decoration bottom-left"></div>
+            <div class="floral-decoration bottom-right"></div>
+        </section>
+
+        <!-- Invitation Message -->
+        <section class="invitation-message">
+            <p class="message-text">
+                Con gran alegría y orgullo, queremos compartir contigo este momento tan especial. 
+                Tu presencia hará de este día un recuerdo inolvidable.
+            </p>
+            <div class="flower-divider">
+                <span>🌺</span>
+                <span>🌸</span>
+                <span>🌺</span>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <h2 class="section-title">Confirma tu Asistencia</h2>
+            <p class="rsvp-subtitle">Por favor, háznoslo saber para poder preparar todo con cariño</p>
+            
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="name">Tu Nombre Completo *</label>
+                    <input type="text" id="name" name="name" required placeholder="Nombre y apellido">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo Electrónico *</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                </div>
+                
+                <div class="form-group">
+                    <label for="attendance">¿Asistirás? *</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="yes">Sí, asistiré con mucho gusto</option>
+                        <option value="no">No podré asistir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="companions-group" style="display: none;">
+                    <label for="companions">Número de Acompañantes</label>
+                    <input type="number" id="companions" name="companions" min="0" max="10" value="0" placeholder="0">
+                    <small class="helper-text">Indica cuántas personas te acompañarán (sin contarte a ti)</small>
+                </div>
+                
+                <div class="form-group" id="companions-names-group" style="display: none;">
+                    <label for="companionsNames">Nombres de los Acompañantes</label>
+                    <textarea id="companionsNames" name="companionsNames" rows="3" placeholder="Por favor, escribe los nombres de las personas que te acompañarán"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje para Mariana (Opcional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Comparte tus felicitaciones o un mensaje especial..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Confirmar Asistencia</span>
+                    <span class="btn-icon">✨</span>
+                </button>
+            </form>
+            
+            <div id="successMessage" class="success-message" style="display: none;">
+                <span class="success-icon">✓</span>
+                <p>¡Gracias por confirmar tu asistencia! Nos vemos pronto 🌸</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Con cariño, la familia Montes 💐</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

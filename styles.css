@@ -1,0 +1,384 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #d4a5a5;
+    --secondary-color: #f5e6e8;
+    --accent-color: #9b6b6b;
+    --text-dark: #4a4a4a;
+    --text-light: #6b6b6b;
+    --white: #ffffff;
+    --gradient-start: #ffeef3;
+    --gradient-end: #fff5f7;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background: var(--white);
+    border-radius: 30px;
+    padding: 80px 40px;
+    margin: 40px 0;
+    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    overflow: hidden;
+}
+
+.floral-decoration {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.3;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+.floral-decoration.top-left {
+    top: -20px;
+    left: -20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='%23d4a5a5'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(0 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(72 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(144 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(216 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(288 50 50)'/%3E%3C/svg%3E");
+}
+
+.floral-decoration.top-right {
+    top: 20px;
+    right: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='%239b6b6b'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(0 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(72 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(144 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(216 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(288 50 50)'/%3E%3C/svg%3E");
+}
+
+.floral-decoration.bottom-left {
+    bottom: 30px;
+    left: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='%23d4a5a5'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(0 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(72 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(144 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(216 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23f5b8c5' transform='rotate(288 50 50)'/%3E%3C/svg%3E");
+}
+
+.floral-decoration.bottom-right {
+    bottom: -10px;
+    right: -10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='8' fill='%239b6b6b'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(0 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(72 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(144 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(216 50 50)'/%3E%3Cellipse cx='50' cy='30' rx='12' ry='18' fill='%23d4a5a5' transform='rotate(288 50 50)'/%3E%3C/svg%3E");
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.ceremony-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.graduate-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.degree-info {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-weight: 300;
+    margin-bottom: 40px;
+}
+
+.divider {
+    margin: 40px 0;
+}
+
+.flower-icon {
+    font-size: 2.5rem;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.event-details {
+    margin-top: 40px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.detail-item .icon {
+    font-size: 1.5rem;
+}
+
+.detail-text {
+    color: var(--text-dark);
+    font-weight: 400;
+}
+
+/* Invitation Message */
+.invitation-message {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin: 40px 0;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+}
+
+.message-text {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+}
+
+.flower-divider {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.flower-divider span {
+    animation: float 3s ease-in-out infinite;
+}
+
+.flower-divider span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.flower-divider span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* RSVP Section */
+.rsvp-section {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 60px 40px;
+    margin: 40px 0;
+    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.rsvp-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(212, 165, 165, 0.1);
+}
+
+.helper-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 165, 165, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.success-message {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+.success-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #4caf50;
+    color: white;
+    border-radius: 50%;
+    line-height: 50px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    font-size: 1.2rem;
+    color: #2e7d32;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        margin: 20px 0;
+        border-radius: 20px;
+    }
+
+    .ceremony-title {
+        font-size: 1.5rem;
+    }
+
+    .graduate-name {
+        font-size: 2.5rem;
+    }
+
+    .degree-info {
+        font-size: 1.2rem;
+    }
+
+    .detail-item {
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .invitation-message,
+    .rsvp-section {
+        padding: 40px 20px;
+        margin: 20px 0;
+        border-radius: 20px;
+    }
+
+    .message-text {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .floral-decoration {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .graduate-name {
+        font-size: 2rem;
+    }
+
+    .degree-info {
+        font-size: 1rem;
+    }
+
+    .flower-icon {
+        font-size: 2rem;
+    }
+}
+
