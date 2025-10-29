@@ -148,8 +148,16 @@ rsvpHeader.addEventListener('click', function() {
 const flipCards = document.querySelectorAll('.flip-card');
 
 flipCards.forEach(card => {
-    card.addEventListener('click', function() {
+    // Handle both click (desktop) and touch (mobile) events
+    const toggleFlip = function(e) {
+        // Prevent default touch behavior
+        if (e.type === 'touchstart') {
+            e.preventDefault();
+        }
         this.classList.toggle('flipped');
-    });
+    };
+    
+    card.addEventListener('click', toggleFlip);
+    card.addEventListener('touchstart', toggleFlip);
 });
 
