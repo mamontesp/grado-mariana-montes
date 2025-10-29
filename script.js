@@ -128,10 +128,28 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe sections for animation
-document.querySelectorAll('.invitation-message, .rsvp-section').forEach(section => {
+document.querySelectorAll('.invitation-message, .rsvp-section, .trivia-section').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(30px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
+});
+
+// Collapsible RSVP Section
+const rsvpHeader = document.getElementById('rsvpHeader');
+const rsvpContent = document.getElementById('rsvpContent');
+
+rsvpHeader.addEventListener('click', function() {
+    this.classList.toggle('active');
+    rsvpContent.classList.toggle('collapsed');
+});
+
+// Flip Card Functionality
+const flipCards = document.querySelectorAll('.flip-card');
+
+flipCards.forEach(card => {
+    card.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+    });
 });
 
