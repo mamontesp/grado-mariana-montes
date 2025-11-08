@@ -34,8 +34,8 @@
                         <span class="detail-text">Sábado, 22 de Noviembre de 2025 - 4:00 PM</span>
                     </div>
                     <div class="detail-item">
-                        <span class="icon">📍</span>
-                        <a href="https://maps.app.goo.gl/4VqprJxEmesxqGDi9" target="_blank" class="detail-text location-link">Cl 17 Sur #9A-09, Bogotá</a>
+                        <span class="icon" aria-hidden="true">📍</span>
+                        <a href="https://maps.app.goo.gl/4VqprJxEmesxqGDi9" target="_blank" rel="noopener noreferrer" class="detail-text location-link" aria-label="Ver ubicación en Google Maps: Calle 17 Sur número 9A-09, Bogotá">Cl 17 Sur #9A-09, Bogotá</a>
                     </div>
                 </div>
             </div>
@@ -79,23 +79,23 @@
         </section>
 
         <!-- RSVP Section -->
-        <section class="rsvp-section">
-            <div class="collapsible-header" id="rsvpHeader">
-                <h2 class="section-title">Confirma tu Asistencia</h2>
-                <span class="collapse-icon">▼</span>
+        <section class="rsvp-section" aria-labelledby="rsvp-title">
+            <div class="collapsible-header" id="rsvpHeader" role="button" tabindex="0" aria-expanded="true" aria-controls="rsvpContent">
+                <h2 class="section-title" id="rsvp-title">Confirma tu Asistencia</h2>
+                <span class="collapse-icon" aria-hidden="true">▼</span>
             </div>
             <div class="collapsible-content" id="rsvpContent">
                 <p class="rsvp-subtitle">Por favor, háznoslo saber para poder preparar todo con cariño</p>
             
-            <form id="rsvpForm" class="rsvp-form">
+            <form id="rsvpForm" class="rsvp-form" novalidate aria-label="Formulario de confirmación de asistencia">
                 <div class="form-group">
                     <label for="name">Tu Nombre Completo *</label>
-                    <input type="text" id="name" name="name" required placeholder="Nombre y apellido">
+                    <input type="text" id="name" name="name" required placeholder="Nombre y apellido" aria-required="true">
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Correo Electrónico *</label>
-                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com" aria-required="true">
                 </div>
                 
                 <div class="form-group">
@@ -105,7 +105,7 @@
                 
                 <div class="form-group">
                     <label for="attendance">¿Asistirás? *</label>
-                    <select id="attendance" name="attendance" required>
+                    <select id="attendance" name="attendance" required aria-required="true">
                         <option value="">Selecciona una opción</option>
                         <option value="yes">Sí, asistiré con mucho gusto</option>
                         <option value="no">No podré asistir</option>
@@ -137,8 +137,8 @@
                 </button>
             </form>
             
-            <div id="successMessage" class="success-message" style="display: none;">
-                <span class="success-icon">✓</span>
+            <div id="successMessage" class="success-message" style="display: none;" role="alert" aria-live="polite">
+                <span class="success-icon" aria-hidden="true">✓</span>
                 <p>¡Gracias por confirmar tu asistencia! Nos vemos pronto 🌸</p>
             </div>
             </div>
@@ -200,8 +200,8 @@
             <p class="contact-subtitle">¿Tienes alguna pregunta? Contáctanos</p>
             <div class="contact-info">
                 <p class="contact-names">Sara y Andrea Montes</p>
-                <a href="https://wa.me/573194396499" target="_blank" class="whatsapp-link">
-                    <span class="whatsapp-icon">💬</span>
+                <a href="https://wa.me/573194396499" target="_blank" rel="noopener noreferrer" class="whatsapp-link" aria-label="Contactar por WhatsApp al +57 319 439 6499">
+                    <span class="whatsapp-icon" aria-hidden="true">💬</span>
                     <span>WhatsApp: +57 319 439 6499</span>
                 </a>
             </div>

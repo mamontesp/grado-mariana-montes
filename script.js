@@ -172,9 +172,21 @@ document.querySelectorAll('.invitation-message, .dress-code-section, .contact-se
 const rsvpHeader = document.getElementById('rsvpHeader');
 const rsvpContent = document.getElementById('rsvpContent');
 
-rsvpHeader.addEventListener('click', function() {
-    this.classList.toggle('active');
+function toggleRSVP() {
+    const isExpanded = rsvpHeader.getAttribute('aria-expanded') === 'true';
+    rsvpHeader.classList.toggle('active');
     rsvpContent.classList.toggle('collapsed');
+    rsvpHeader.setAttribute('aria-expanded', !isExpanded);
+}
+
+rsvpHeader.addEventListener('click', toggleRSVP);
+
+// Keyboard support for collapsible header
+rsvpHeader.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleRSVP();
+    }
 });
 
 // Flip Card Functionality

@@ -6,11 +6,14 @@
 }
 
 :root {
-    --primary-color: #d4a5a5;
+    --primary-color: #c75b7a;
+    --primary-light: #d98ba6;
     --secondary-color: #f5e6e8;
-    --accent-color: #9b6b6b;
-    --text-dark: #4a4a4a;
-    --text-light: #6b6b6b;
+    --accent-color: #8b2e4a;
+    --accent-dark: #5f1f32;
+    --text-dark: #1a1a1a;
+    --text-medium: #3a3a3a;
+    --text-light: #4a4a4a;
     --white: #ffffff;
     --gradient-start: #ffeef3;
     --gradient-end: #fff5f7;
@@ -18,7 +21,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    background: linear-gradient(135deg, #ffe0ea 0%, #ffd5e2 50%, #ffc8d9 100%);
     color: var(--text-dark);
     line-height: 1.6;
     min-height: 100vh;
@@ -37,8 +40,11 @@ body {
     border-radius: 30px;
     padding: 80px 40px;
     margin: 40px 0;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .floral-decoration {
@@ -102,15 +108,15 @@ body {
 
 .degree-info {
     font-size: 1.5rem;
-    color: var(--text-light);
-    font-weight: 300;
+    color: var(--text-medium);
+    font-weight: 400;
     margin-bottom: 10px;
 }
 
 .university-info {
     font-size: 1.2rem;
-    color: var(--text-light);
-    font-weight: 300;
+    color: var(--text-medium);
+    font-weight: 400;
     margin-bottom: 40px;
     font-style: italic;
 }
@@ -163,12 +169,12 @@ body {
 .location-link {
     text-decoration: underline;
     text-decoration-style: dotted;
-    text-decoration-color: var(--primary-color);
-    color: var(--primary-color);
+    text-decoration-color: var(--accent-color);
+    color: var(--accent-color);
     position: relative;
     transition: all 0.3s ease;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .location-link::after {
@@ -178,9 +184,9 @@ body {
 }
 
 .location-link:hover {
-    color: var(--accent-color);
+    color: var(--accent-dark);
     text-decoration-style: solid;
-    text-decoration-color: var(--accent-color);
+    text-decoration-color: var(--accent-dark);
 }
 
 .location-link:active {
@@ -190,18 +196,22 @@ body {
 /* Mobile touch enhancements for location link */
 @media (hover: none) and (pointer: coarse) {
     .location-link {
-        -webkit-tap-highlight-color: rgba(212, 165, 165, 0.3);
-        padding: 10px 15px;
-        background: linear-gradient(135deg, var(--secondary-color) 0%, #fff9fa 100%);
+        -webkit-tap-highlight-color: rgba(139, 46, 74, 0.3);
+        padding: 12px 18px;
+        background: var(--secondary-color);
+        border: 2px solid var(--accent-color);
         border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(212, 165, 165, 0.25);
+        box-shadow: 0 3px 10px rgba(139, 46, 74, 0.25);
         display: inline-block;
         margin: 8px 0;
+        font-weight: 600;
+        color: var(--accent-dark);
     }
 
     .location-link:active {
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
         color: white;
+        border-color: var(--accent-dark);
         transform: scale(0.96);
     }
 }
@@ -213,16 +223,19 @@ body {
     padding: 60px 40px;
     margin: 40px 0;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .message-text {
     font-size: 1.3rem;
-    color: var(--text-light);
+    color: var(--text-medium);
     line-height: 1.8;
     max-width: 700px;
     margin: 0 auto;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .flower-divider {
@@ -260,15 +273,19 @@ body {
     padding: 60px 40px;
     margin: 40px 0;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .dress-code-text {
     font-size: 1.2rem;
-    color: var(--text-light);
+    color: var(--text-medium);
     line-height: 1.8;
     margin: 20px auto 30px;
     max-width: 600px;
+    font-weight: 400;
 }
 
 .color-list {
@@ -303,15 +320,18 @@ body {
     padding: 60px 40px;
     margin: 40px 0;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .contact-subtitle {
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 1.1rem;
     margin-bottom: 30px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .contact-info {
@@ -356,7 +376,10 @@ body {
     border-radius: 30px;
     padding: 60px 40px;
     margin: 40px 0;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .collapsible-header {
@@ -405,10 +428,10 @@ body {
 
 .rsvp-subtitle {
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 1.1rem;
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .rsvp-form {
@@ -454,7 +477,7 @@ body {
     display: block;
     margin-top: 5px;
     font-size: 0.85rem;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-style: italic;
 }
 
@@ -492,6 +515,9 @@ body {
     background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
     border-radius: 12px;
     margin-top: 30px;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3),
+                0 2px 8px rgba(76, 175, 80, 0.15);
+    border: 2px solid #4caf50;
 }
 
 .success-icon {
@@ -518,15 +544,18 @@ body {
     border-radius: 30px;
     padding: 60px 40px;
     margin: 40px 0;
-    box-shadow: 0 20px 60px rgba(212, 165, 165, 0.15);
+    box-shadow: 0 10px 40px rgba(139, 46, 74, 0.25),
+                0 4px 12px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(199, 91, 122, 0.1);
 }
 
 .trivia-subtitle {
     text-align: center;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 1.1rem;
     margin-bottom: 50px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .trivia-cards {
@@ -577,14 +606,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 10px 30px rgba(212, 165, 165, 0.2);
+    box-shadow: 0 8px 25px rgba(139, 46, 74, 0.3),
+                0 3px 10px rgba(139, 46, 74, 0.15),
+                0 1px 3px rgba(0, 0, 0, 0.08);
     user-select: none;
     -webkit-user-select: none;
 }
 
 .flip-card-front {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #fff9fa 100%);
-    border: 3px solid var(--primary-color);
+    background: var(--white);
+    border: 2px solid var(--primary-color);
 }
 
 .flip-card-back {
@@ -612,7 +643,7 @@ body {
 
 .flip-hint {
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-style: italic;
     margin-top: auto;
 }
@@ -636,8 +667,97 @@ body {
 .footer {
     text-align: center;
     padding: 40px 0;
-    color: var(--text-light);
+    color: var(--text-medium);
     font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.location-link:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+.submit-btn:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 4px;
+    box-shadow: 0 10px 30px rgba(212, 165, 165, 0.3),
+                0 0 0 6px rgba(139, 46, 74, 0.2);
+}
+
+.whatsapp-link:focus {
+    outline: 3px solid #128c7e;
+    outline-offset: 4px;
+}
+
+.collapsible-header:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+
+/* Ensure focus is never hidden */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .flower-icon,
+    .engineer-icon,
+    .flower-divider span {
+        animation: none !important;
+    }
+    
+    .flip-card-inner {
+        transition: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #a82e52;
+        --accent-color: #5f1f32;
+        --text-dark: #000000;
+        --text-medium: #1a1a1a;
+    }
+    
+    .hero,
+    .invitation-message,
+    .dress-code-section,
+    .contact-section,
+    .rsvp-section,
+    .trivia-section {
+        border: 2px solid var(--accent-color);
+    }
 }
 
 /* Responsive Design */
@@ -676,14 +796,16 @@ body {
 
     .location-link {
         display: inline-block;
-        padding: 8px 12px;
-        background: linear-gradient(135deg, var(--secondary-color) 0%, #fff9fa 100%);
-        border-radius: 8px;
-        text-decoration: underline;
-        text-decoration-style: solid;
+        padding: 10px 16px;
+        background: var(--secondary-color);
+        border: 2px solid var(--accent-color);
+        border-radius: 10px;
+        text-decoration: none;
         font-size: 1.1rem;
         margin: 5px 0;
-        box-shadow: 0 2px 8px rgba(212, 165, 165, 0.2);
+        box-shadow: 0 3px 10px rgba(139, 46, 74, 0.2);
+        font-weight: 600;
+        color: var(--accent-dark);
     }
 
     .location-link::after {
