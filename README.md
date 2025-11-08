@@ -6,31 +6,35 @@ Perfect for graduation ceremonies, weddings, birthday parties, or any special ev
 
 ## ✨ Features
 
-- **Zero Dependencies:** Pure HTML, CSS, and JavaScript
+- **Real Database:** Supabase (PostgreSQL) backend for reliable RSVP storage
 - **Fully Responsive:** Mobile-first design with smooth animations
 - **Modern UI/UX:** Floral theme with gradient backgrounds and SVG decorations
 - **RSVP Form:** Interactive form with dynamic field visibility
-- **Easy Integration:** Ready for Formspree, EmailJS, or Google Forms
+- **Secure:** Row Level Security (RLS) and bot protection (honeypot)
 - **GitHub Pages Ready:** Deploy in minutes with static hosting
 - **Customizable:** CSS variables for quick theme changes
 - **Accessibility:** Semantic HTML with proper form labels
-- **Performance:** Lightweight (~15KB total) with smooth 60fps animations
+- **Performance:** Lightweight with smooth 60fps animations
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Backend:** Supabase (PostgreSQL database)
 - **Fonts:** Google Fonts (Playfair Display, Montserrat)
 - **Deployment:** GitHub Pages
-- **Form Handling:** Configurable (Formspree/EmailJS/Google Forms)
+- **Security:** Row Level Security, honeypot bot detection
 
 ## 📂 Project Structure
 
 ```
 .
-├── index.html      # Main HTML structure
-├── styles.css      # All styles with CSS custom properties
-├── script.js       # Form handling and interactions
-└── README.md       # Documentation
+├── index.html          # Main HTML structure
+├── styles.css          # All styles with CSS custom properties
+├── script.js           # Form handling, Supabase integration, and interactions
+├── config.js           # Supabase configuration (anon key - safe to commit)
+├── database_setup.sql  # Database schema and RLS policies
+├── README.md           # This file
+└── SETUP_GUIDE.md      # Detailed setup instructions
 ```
 
 ## 🚀 Quick Start
@@ -73,53 +77,38 @@ Perfect for graduation ceremonies, weddings, birthday parties, or any special ev
    - Click **Save**
    - Your site will be live at: `https://username.github.io/repo-name/`
 
-## 📧 Form Integration
+## 🗄️ Database Setup
 
-The RSVP form is ready to connect with your preferred backend service. Choose one:
+This project uses **Supabase** (PostgreSQL) for storing RSVP responses.
 
-### Option 1: Formspree (Recommended)
+### Quick Setup
 
-**Pros:** Free tier available, no backend needed, spam protection
+1. **Create a Supabase project** at [supabase.com](https://supabase.com)
 
-1. Sign up at [Formspree.io](https://formspree.io)
-2. Create a new form and copy the Form ID
-3. In `script.js`, uncomment the Formspree section (line ~50):
+2. **Run the database setup script:**
+   - Go to SQL Editor in your Supabase dashboard
+   - Copy and run the contents of `database_setup.sql`
+   - This creates the table, indexes, and Row Level Security policies
+
+3. **Update `config.js`** with your Supabase credentials:
    ```javascript
-   fetch('https://formspree.io/f/YOUR_FORM_ID', {
-       method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify(data)
-   })
+   const SUPABASE_CONFIG = {
+       url: 'YOUR_SUPABASE_PROJECT_URL',
+       anonKey: 'YOUR_SUPABASE_ANON_KEY'
+   };
    ```
-4. Replace `YOUR_FORM_ID` with your actual ID
+   Find these in: Supabase Dashboard → Settings → API
 
-### Option 2: EmailJS
+4. **Deploy!** The anon key is safe to commit with RLS enabled.
 
-**Pros:** Direct email delivery, customizable templates
+For detailed instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md)
 
-1. Sign up at [EmailJS.com](https://www.emailjs.com/)
-2. Configure email service and create template
-3. Uncomment EmailJS section in `script.js` (~65)
-4. Add your Service ID, Template ID, and Public Key
+### Security Features
 
-### Option 3: Google Forms
-
-**Pros:** Simplest setup, automatic spreadsheet
-
-- Redirect form submission to a Google Form URL
-- Less integrated but zero configuration
-
-### Option 4: Custom Backend
-
-Modify the `sendRSVP()` function to POST to your API endpoint:
-
-```javascript
-fetch('https://your-api.com/rsvp', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-})
-```
+- ✅ **Row Level Security (RLS):** Guests can submit but can't read others' responses
+- ✅ **Bot Protection:** Honeypot field catches automated submissions
+- ✅ **Rate Limiting:** Built into Supabase (default: 100 req/min per IP)
+- ✅ **Duplicate Prevention:** Optional unique email constraint
 
 ## 🎨 Customization
 

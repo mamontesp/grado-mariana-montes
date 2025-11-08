@@ -33,3 +33,8 @@ Temporary Items
 *.log
 npm-debug.log*
 
+# Local development
+config.local.js
+
+# Supabase credentials (though anon key is safe to expose)
+.env
