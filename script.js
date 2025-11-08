@@ -217,8 +217,9 @@ flipCards.forEach(card => {
         const deltaY = Math.abs(touchEndY - touchStartY);
         const deltaX = Math.abs(touchEndX - touchStartX);
         
-        // If movement is less than 10px, treat as tap (not scroll)
-        if (deltaY < 10 && deltaX < 10) {
+        // If movement is less than 30px, treat as tap (not scroll)
+        // This gives users more room for imprecise taps
+        if (deltaY < 30 && deltaX < 30) {
             toggleCardFlip(this);
         }
     };
