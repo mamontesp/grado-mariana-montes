@@ -196,7 +196,8 @@ flipCards.forEach(card => {
     let flipTimer = null;
     let touchStartY = 0;
     let touchStartX = 0;
-    let isTouchDevice = false;
+    let touchStartTime = 0;
+    let isTouching = false;
     
     // Toggle the flip
     const toggleCardFlip = function() {
@@ -224,37 +225,44 @@ flipCards.forEach(card => {
         }
     };
     
-    // Handle click events (desktop)
-    const handleClick = function(e) {
-        // Don't handle click if it's a touch device (to avoid double-triggering)
-        if (!isTouchDevice) {
-            toggleCardFlip();
-        }
-    };
-    
-    // Track touch start position
+    // Track touch start position and time
     const handleTouchStart = function(e) {
-        isTouchDevice = true;
+        isTouching = true;
         touchStartY = e.touches[0].clientY;
         touchStartX = e.touches[0].clientX;
+        touchStartTime = Date.now();
     };
     
     // Only flip if it was a tap, not a scroll
     const handleTouchEnd = function(e) {
+        if (!isTouching) return;
+        
         const touchEndY = e.changedTouches[0].clientY;
         const touchEndX = e.changedTouches[0].clientX;
+        const touchDuration = Date.now() - touchStartTime;
         
         // Calculate movement distance
         const deltaY = Math.abs(touchEndY - touchStartY);
         const deltaX = Math.abs(touchEndX - touchStartX);
         
-        // If movement is less than 30px, treat as tap (not scroll)
-        if (deltaY < 30 && deltaX < 30) {
+        // If movement is less than 10px and touch was quick (less than 300ms), treat as tap
+        if (deltaY < 10 && deltaX < 10 && touchDuration < 300) {
+            e.preventDefault(); // Prevent click event from firing
+            toggleCardFlip();
+        }
+        
+        isTouching = false;
+    };
+    
+    // Handle click events (desktop only - will be prevented on mobile by touchend)
+    const handleClick = function(e) {
+        // Only handle click if it wasn't preceded by a touch event
+        if (!isTouching) {
             toggleCardFlip();
         }
     };
     
-    card.addEventListener('click', handleClick);
     card.addEventListener('touchstart', handleTouchStart, { passive: true });
-    card.addEventListener('touchend', handleTouchEnd, { passive: true });
+    card.addEventListener('touchend', handleTouchEnd);
+    card.addEventListener('click', handleClick);
 });
