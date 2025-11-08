@@ -196,14 +196,45 @@ flipCards.forEach(card => {
     let flipTimer = null;
     let touchStartY = 0;
     let touchStartX = 0;
+    let isTouchDevice = false;
+    
+    // Toggle the flip
+    const toggleCardFlip = function() {
+        // Clear any existing timer
+        if (flipTimer) {
+            clearTimeout(flipTimer);
+            flipTimer = null;
+        }
+        
+        // Toggle the flip
+        const isFlipped = card.classList.contains('flipped');
+        
+        if (!isFlipped) {
+            // Flipping to answer side
+            card.classList.add('flipped');
+            
+            // Set timer to flip back after 3 seconds
+            flipTimer = setTimeout(() => {
+                card.classList.remove('flipped');
+                flipTimer = null;
+            }, 3000);
+        } else {
+            // Manually flipping back to question side
+            card.classList.remove('flipped');
+        }
+    };
     
     // Handle click events (desktop)
-    const handleClick = function() {
-        toggleCardFlip(this);
+    const handleClick = function(e) {
+        // Don't handle click if it's a touch device (to avoid double-triggering)
+        if (!isTouchDevice) {
+            toggleCardFlip();
+        }
     };
     
     // Track touch start position
     const handleTouchStart = function(e) {
+        isTouchDevice = true;
         touchStartY = e.touches[0].clientY;
         touchStartX = e.touches[0].clientX;
     };
@@ -218,35 +249,8 @@ flipCards.forEach(card => {
         const deltaX = Math.abs(touchEndX - touchStartX);
         
         // If movement is less than 30px, treat as tap (not scroll)
-        // This gives users more room for imprecise taps
         if (deltaY < 30 && deltaX < 30) {
-            toggleCardFlip(this);
-        }
-    };
-    
-    // Toggle the flip
-    const toggleCardFlip = function(cardElement) {
-        // Clear any existing timer
-        if (flipTimer) {
-            clearTimeout(flipTimer);
-            flipTimer = null;
-        }
-        
-        // Toggle the flip
-        const isFlipped = cardElement.classList.contains('flipped');
-        
-        if (!isFlipped) {
-            // Flipping to answer side
-            cardElement.classList.add('flipped');
-            
-            // Set timer to flip back after 3 seconds
-            flipTimer = setTimeout(() => {
-                cardElement.classList.remove('flipped');
-                flipTimer = null;
-            }, 3000);
-        } else {
-            // Manually flipping back to question side
-            cardElement.classList.remove('flipped');
+            toggleCardFlip();
         }
     };
     
