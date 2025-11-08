@@ -575,7 +575,7 @@ body {
     height: 320px;
     perspective: 1000px;
     cursor: pointer;
-    touch-action: manipulation;
+    touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
 

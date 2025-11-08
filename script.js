@@ -194,14 +194,37 @@ const flipCards = document.querySelectorAll('.flip-card');
 
 flipCards.forEach(card => {
     let flipTimer = null;
+    let touchStartY = 0;
+    let touchStartX = 0;
     
-    // Handle both click (desktop) and touch (mobile) events
-    const toggleFlip = function(e) {
-        // Prevent default touch behavior
-        if (e.type === 'touchstart') {
-            e.preventDefault();
-        }
+    // Handle click events (desktop)
+    const handleClick = function() {
+        toggleCardFlip(this);
+    };
+    
+    // Track touch start position
+    const handleTouchStart = function(e) {
+        touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
+    };
+    
+    // Only flip if it was a tap, not a scroll
+    const handleTouchEnd = function(e) {
+        const touchEndY = e.changedTouches[0].clientY;
+        const touchEndX = e.changedTouches[0].clientX;
         
+        // Calculate movement distance
+        const deltaY = Math.abs(touchEndY - touchStartY);
+        const deltaX = Math.abs(touchEndX - touchStartX);
+        
+        // If movement is less than 10px, treat as tap (not scroll)
+        if (deltaY < 10 && deltaX < 10) {
+            toggleCardFlip(this);
+        }
+    };
+    
+    // Toggle the flip
+    const toggleCardFlip = function(cardElement) {
         // Clear any existing timer
         if (flipTimer) {
             clearTimeout(flipTimer);
@@ -209,23 +232,24 @@ flipCards.forEach(card => {
         }
         
         // Toggle the flip
-        const isFlipped = this.classList.contains('flipped');
+        const isFlipped = cardElement.classList.contains('flipped');
         
         if (!isFlipped) {
             // Flipping to answer side
-            this.classList.add('flipped');
+            cardElement.classList.add('flipped');
             
             // Set timer to flip back after 3 seconds
             flipTimer = setTimeout(() => {
-                this.classList.remove('flipped');
+                cardElement.classList.remove('flipped');
                 flipTimer = null;
             }, 3000);
         } else {
             // Manually flipping back to question side
-            this.classList.remove('flipped');
+            cardElement.classList.remove('flipped');
         }
     };
     
-    card.addEventListener('click', toggleFlip);
-    card.addEventListener('touchstart', toggleFlip);
+    card.addEventListener('click', handleClick);
+    card.addEventListener('touchstart', handleTouchStart, { passive: true });
+    card.addEventListener('touchend', handleTouchEnd, { passive: true });
 });
