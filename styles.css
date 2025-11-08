@@ -160,6 +160,23 @@ body {
     font-weight: 400;
 }
 
+.location-link {
+    text-decoration: none;
+    color: var(--text-dark);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.location-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.location-link:active {
+    color: var(--accent-color);
+}
+
 /* Invitation Message */
 .invitation-message {
     background: var(--white);
